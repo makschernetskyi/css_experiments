@@ -1,0 +1,166 @@
+
+$light-green: #71ebb3
+$screen-black: #272727
+
+*
+  box-sizing: border-box
+
+html,body,#app
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+
+$header-height: clamp(70px, 12vh, 150px)
+
+.Header
+  top: 0
+  position: sticky
+  width: 100%
+  height: $header-height
+  z-index: 10
+  display: grid
+  grid-template-rows: 1fr
+  grid-template-columns: 2fr 1fr 2fr
+
+
+.Header-SideFillerLine
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 2em
+
+  &.Header-SideFillerLine--first
+    grid-column: 1/2
+
+  &.Header-SideFillerLine--second
+    grid-column: 3/4
+
+.Header-SideFillerLine-line
+  height: 5px
+  width: 100%
+  background: $screen-black
+  border-radius: 50px
+
+
+
+.Header-Links
+  width: 100%
+  height: 100%
+  grid-column: 2/3
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr
+
+.Header-Links-AuthorRef
+  width: 100%
+  height: 100%
+
+.Header-Links-AuthorRef-Link
+  display: grid
+  width: 100%
+  height: 100%
+  color: $screen-black
+  padding: 0.5rem
+  grid-template-rows: calc(($header-height - 1rem) / 2) calc(($header-height - 1rem) / 2)
+  grid-template-columns: 1fr
+
+  text-decoration: none
+
+  font-family: Raleway, sans-serif
+
+
+
+
+.Header-Links-AuthorRef-Link-text
+  grid-column: 1/2
+  grid-row: 1/2
+  display: flex
+  justify-content: center
+  align-items: center
+
+  font-size: 1.5rem
+  font-weight: 1000
+
+.Header-Links-AuthorRef-Link-Logo
+  grid-column: 1/2
+  grid-row: 2/3
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  background-image: url("../GitHub_Logo.png")
+  background-repeat: no-repeat
+  background-size: contain
+  background-position: center
+  transition: filter .05s
+  &:hover
+    filter: invert(0.7) sepia(.9) hue-rotate(100deg) saturate(200%)
+
+
+.Header-Links-AuthorRef-Link-Logo-image
+  height: 100%
+  width: 100%
+
+  img
+    height: 100%
+
+.Content
+  position: relative
+  overflow-y: auto
+  height: calc(100vh - $header-height)
+  width: 100%
+  display: flex
+  justify-content: center
+
+
+.Content-Articles
+  overflow-y: auto
+  height: calc(100vh - $header-height)
+  width: 100%
+  display: flex
+  justify-content: center
+
+
+
+.Content-Gradient
+  position: absolute
+  width: 100%
+  height: 15px
+  z-index: 2
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)
+  pointer-events: none
+
+.Content-Articles-List
+  height: min-content
+  display: grid
+  width: 100%
+  padding: 1rem
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  grid-gap: 1rem
+
+
+
+
+.Content-Articles-List-Article-Item
+  width: 100%
+  height: auto
+  border-radius: 10px
+  padding: 1em
+  font-family: Raleway, sans-serif
+  font-weight: bold
+  font-size: clamp(10px, 1rem, 30px)
+  cursor: default
+
+
+
+@media screen and (min-width: 1024px)
+  .Content-Articles-List
+    width: 50%
+
+
+
